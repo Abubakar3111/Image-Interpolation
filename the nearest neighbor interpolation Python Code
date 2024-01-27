@@ -1,0 +1,19 @@
+import matplotlib.pyplot as plt
+import numpy as np
+Img = plt.imread("/content/mand.jpg")
+print(Img.shape)
+scale=2
+New_img = np.zeros((scale*128,scale*128))
+print(New_img.shape)
+for i in range(128):
+    for j in range(128):
+        for k in range(scale):
+            for l in range(scale):
+                New_img[scale*i+k, scale*j+l] = I[i,j]
+fig = plt.figure()
+ax1 = fig.add_subplot(1,2,1)
+ax1.imshow(Img,cmap='gray')
+plt.title('Exact Image')
+ax2 = fig.add_subplot(1,2,2)
+ax2.imshow(New_img,cmap='gray')
+plt.title('Scaled Image')
